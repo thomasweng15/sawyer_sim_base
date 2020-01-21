@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <node pkg="intera_interface" type="joint_trajectory_action_server.py" name="joint_trajectory_action_server" />
+
+  <include file="$(find sawyer_moveit_config)/launch/sawyer_moveit.launch">
+    <!-- <arg name="rviz_config" value="$(find sawyer_sim_base)/config/sim.rviz" /> -->
+    <arg name="electric_gripper" value="true" />
+  </include>
+
+  <node pkg="sawyer_sim_base" type="init_arm_position.py" name="init_arm_position" />
+
+  <!-- <node pkg="sawyer_sim_base" type="collision_geometries.py" name="collision_geometries" /> -->
+
+</launch>
